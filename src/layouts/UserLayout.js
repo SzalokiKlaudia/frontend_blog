@@ -8,7 +8,7 @@ export default function UserLayout() {
   const location = useLocation();
 
   return (
-    <div className="container">
+    <div className="user-container w-full">
       <Nav>
         <LogRegBtn logOut={logOut}>Logout</LogRegBtn>
       </Nav>

@@ -7,17 +7,19 @@ export default function GuestLayout() {
   const location = useLocation();
 
   return (
-    <div className="container">
+    <div className="guest-container w-full">
       {location.pathname === "/login" || location.pathname === "/register" ? (
         <Nav />
       ) : (
         <Nav>
-          <LogRegBtn>
-            <Link to="/login">Login</Link>
-          </LogRegBtn>
-          <LogRegBtn>
-            <Link to="/register">Register</Link>
-          </LogRegBtn>
+          <div className="ml-auto flex gap-4">
+            <LogRegBtn>
+              <Link to="/login">Login</Link>
+            </LogRegBtn>
+            <LogRegBtn>
+              <Link to="/register">Register</Link>
+            </LogRegBtn>
+          </div>
         </Nav>
       )}
 

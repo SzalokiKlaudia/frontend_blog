@@ -7,6 +7,9 @@ import Home from "./pages/Home";
 import UserLayout from "./layouts/UserLayout";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
+import Posts from "./components/Posts";
+import Post from "./components/Post";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   const { user } = useAuthContext();
@@ -14,15 +17,19 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        {user !== null ? (
-          <Route element={<UserLayout />}>
-            <Route index element={<Home />} />
-          </Route>
-        ) : (
+        <Route element={user ? <UserLayout /> : <GuestLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/posts/:id" element={<Post />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Route>
+
+        {!user && (
           <Route element={<GuestLayout />}>
-            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Registration />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/posts/:id" element={<Post />} />
+            <Route path="*" element={<PageNotFound />} />
           </Route>
         )}
       </Routes>
