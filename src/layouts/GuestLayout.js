@@ -1,29 +1,26 @@
-import { Link, Outlet, useLocation } from "react-router-dom";
-import useAuthContext from "../context/AuthContext";
+import { Link, Outlet } from "react-router-dom";
 import Nav from "../components/Nav";
 import LogRegBtn from "../components/LogRegBtn";
+import Footer from "../components/Footer";
 
 export default function GuestLayout() {
-  const location = useLocation();
-
   return (
     <div className="guest-container w-full">
-      {location.pathname === "/login" || location.pathname === "/register" ? (
-        <Nav />
-      ) : (
-        <Nav>
-          <div className="ml-auto flex gap-4">
-            <LogRegBtn>
-              <Link to="/login">Login</Link>
-            </LogRegBtn>
-            <LogRegBtn>
-              <Link to="/register">Register</Link>
-            </LogRegBtn>
-          </div>
-        </Nav>
-      )}
+      <Nav>
+        <div className="ml-auto flex gap-4">
+          <LogRegBtn>
+            <Link to="/login">Login</Link>
+          </LogRegBtn>
+          <LogRegBtn>
+            <Link to="/register">Register</Link>
+          </LogRegBtn>
+        </div>
+      </Nav>
 
-      <Outlet />
+      <main className="main-guest">
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 }

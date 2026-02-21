@@ -10,6 +10,9 @@ import Registration from "./pages/Registration";
 import Posts from "./components/Posts";
 import Post from "./components/Post";
 import PageNotFound from "./pages/PageNotFound";
+import CreatePost from "./pages/CreatePost";
+import EditPost from "./pages/EditPost";
+import Profil from "./pages/Profil";
 
 function App() {
   const { user } = useAuthContext();
@@ -17,19 +20,26 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        {/* A közös útvonalak */}
         <Route element={user ? <UserLayout /> : <GuestLayout />}>
-          <Route path="/" element={<Home />} />
+          <Route index element={<Home />} />
           <Route path="/posts/:id" element={<Post />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
 
+        {user && (
+          <Route element={<UserLayout />}>
+            <Route path="/user/post/{post}/edit" element={<EditPost />} />
+            <Route path="/user/post" element={<CreatePost />} />
+            <Route path="/user" element={<Profil />} />
+          </Route>
+        )}
+
+        {/* Ide kerülnek a vendég útvonalak*/}
         {!user && (
           <Route element={<GuestLayout />}>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Registration />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/posts/:id" element={<Post />} />
-            <Route path="*" element={<PageNotFound />} />
           </Route>
         )}
       </Routes>

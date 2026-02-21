@@ -22,7 +22,11 @@ export const AuthProvider = ({ children }) => {
       const { data } = await myAxios.get("/api/user");
       setUser(data);
     } catch (error) {
-      console.error(error);
+      if (error.response && error.response.status === 401) {
+        setUser(null);
+      } else {
+        console.error(error);
+      }
     }
   };
 

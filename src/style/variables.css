@@ -1,4 +1,10 @@
 :root {
   --nav-bar: #172f4a;
   --nav-font-color: #ebf0f4;
+  --footer: #172f4a;
+  --footer-font-color: #ebf0f4;
+  --log-reg-bg-color: #ced5e0;
+  --btn-color: #172f4a;
+  --btn-font-color: #ebf0f4;
+  --btn-hover-color: #3e4858;
 }

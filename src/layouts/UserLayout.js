@@ -2,6 +2,7 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import Nav from "../components/Nav";
 import useAuthContext from "../context/AuthContext";
 import LogRegBtn from "../components/LogRegBtn";
+import Footer from "../components/Footer";
 
 export default function UserLayout() {
   const { user, logOut } = useAuthContext();
@@ -9,10 +10,14 @@ export default function UserLayout() {
 
   return (
     <div className="user-container w-full">
-      <Nav>
+      <Nav className="navbar-user">
+        <span>⭐Hello {user.name}</span>
         <LogRegBtn logOut={logOut}>Logout</LogRegBtn>
       </Nav>
-      <Outlet />
+      <main className="main-user">
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 }
