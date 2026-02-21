@@ -6,8 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 
 function Login() {
-  const { loginReg, error } = useAuthContext();
-
   return (
     <div className="login-container pt-5">
       <div className="flex items-center justify-center w-20 h-20 rounded-full bg-slate-100 mb-2">
@@ -18,7 +16,7 @@ function Login() {
         />
       </div>
 
-      <LoginForm loginReg={loginReg} error={error} />
+      <LoginForm />
     </div>
   );
 }

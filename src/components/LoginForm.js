@@ -1,9 +1,11 @@
 import { useState } from "react";
 import FormButton from "./FormButton";
+import useAuthContext from "../context/AuthContext";
 
-function LoginForm({ loginReg, error }) {
+function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { loginReg, error } = useAuthContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,9 +16,10 @@ function LoginForm({ loginReg, error }) {
     };
 
     loginReg(data, "/login");
+    console.log("elküldtem");
   };
   return (
-    <form className="pt-5 login-form" onSubmit={handleSubmit}>
+    <form className="pt-5 login-reg-form" onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="email" className="form-label"></label>
         <input
@@ -47,7 +50,9 @@ function LoginForm({ loginReg, error }) {
           required
         />
       </div>
-      <FormButton variant="log-reg-btn-container">Login</FormButton>
+      <div>
+        <FormButton variant="log-reg-btn-container">Login</FormButton>
+      </div>
     </form>
   );
 }

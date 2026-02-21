@@ -30,6 +30,11 @@ nav {
   color: var(--nav-font-color);
 }
 
+.navbar-user{
+  
+
+}
+
 footer {
   height: 3rem;
   color: var(--nav-font-color);
@@ -40,20 +45,21 @@ footer {
   min-height: calc(100vh - 8rem);
 }
 
-.login-container {
+.login-container,
+.reg-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.login-form {
+.login-reg-form {
   width: 90%;
   max-width: 20rem;
   height: auto;
 }
 
-.login-form input {
+.login-reg-form input {
   width: 100%;
   padding: 0.5rem 1rem;
   border: 3px solid var(--log-reg-bg-color);
@@ -62,6 +68,7 @@ footer {
 }
 
 .log-reg-btn-container {
+  width: 100%;
   margin-top: 2.5rem;
   background-color: var(--btn-color);
   color: var(--btn-font-color);

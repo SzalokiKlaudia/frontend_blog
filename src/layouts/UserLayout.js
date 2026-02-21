@@ -10,9 +10,15 @@ export default function UserLayout() {
 
   return (
     <div className="user-container w-full">
-      <Nav className="navbar-user">
-        <span>⭐Hello {user.name}</span>
-        <LogRegBtn logOut={logOut}>Logout</LogRegBtn>
+      <Nav>
+        <div className="ml-auto flex gap-4 items-center">
+          <span>⭐Hello {user.name}</span>
+          <LogRegBtn>
+            <Link to="/user">Profile</Link>
+          </LogRegBtn>
+
+          <LogRegBtn logOut={logOut}>Logout</LogRegBtn>
+        </div>
       </Nav>
       <main className="main-user">
         <Outlet />

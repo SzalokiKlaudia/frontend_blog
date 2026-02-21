@@ -2,9 +2,9 @@ import { useState } from "react";
 
 function FormButton({ children, variant }) {
   return (
-    <div className={`${variant}`}>
-      <button type="submit">{children}</button>
-    </div>
+    <button type="submit" className={`${variant}`}>
+      {children}
+    </button>
   );
 }
 
